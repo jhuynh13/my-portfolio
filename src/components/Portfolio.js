@@ -76,7 +76,7 @@ const Portfolio = () => {
                             </CardActionArea>
                                     <CardActions>
                                         <Button size="small" color="primary">
-                                        <a href="https://jhuynh13.github.io/Mangart-demo">
+                                        <a href="https://jhuynh13.github.io">
                                                 Live Demo
                                                 
                                             </a>
