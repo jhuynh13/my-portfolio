@@ -1,17 +1,16 @@
 import React from 'react';
 import {makeStyles, withStyles} from "@material-ui/core/styles";
 import {TextField, Typography, Button, Grid, Box} from "@material-ui/core";
-import SendIcon from "@material-ui/icons/Send";
 import Navbar from "./Navbar";
 
-const useStyles = makeStyles((theme)=>({
+const useStyles = makeStyles((theme) => ({
     form: {
         top: "35%",
         left: "40%",
         transform: "translate(-50%,-50%",
         position: "absolute"
     },
-    button: {
+    buttons: {
         marginTop: "1rem",
         color: "tomato",
         borderColor: "tomato"
@@ -45,44 +44,55 @@ const Contacts = () => {
     const classes = useStyles();
 
     return (
-        <div>
-            <Box component="div" style={{ background: "#233", height: "100vh"}}>
-                <Navbar />
-                <Grid container justify="center">
-                    <Box component="form" className={classes.form}>
-                        <Typography variant="h5" style={{color: "tomato",textAlign:"center",textTransform:"uppercase",}}>
-                            Contact Me 
-                        </Typography>
-                        <InputField 
-                            fullWidth={true} 
-                            label="Name" 
-                            variant="outlined" 
-                            inputProps={{style:{color: "white"} }} 
-                            margin="dense" 
-                            size="medium" 
-                        />
-                        <br />
-                        <InputField 
-                            fullWidth={true} 
-                            label="Email" 
-                            variant="outlined" 
-                            inputProps={{style:{color: "white"} }} 
-                            margin="dense" 
-                            size="medium" 
-                        />
-                        <br />
-                        <Button 
-                        className={classes.button} 
-                        variant="outlined" 
+        
+        <Box component="div" style={{ background: "#233", height: "100vh"}}>
+            <Navbar />
+            <Grid container justify="center">
+                <Box component="form" className={classes.form}>
+                    <Typography variant="h5" style={{color: "tomato",textAlign:"center",textTransform:"uppercase",}}>
+                        Contact Me 
+                    </Typography>
+                    <InputField 
                         fullWidth={true} 
-                        endIcon={<SendIcon />}
-                        >
-                            Contact Me
-                        </Button>
-                    </Box>
-                </Grid>
-            </Box>
-        </div>
+                        label="Name" 
+                        variant="outlined" 
+                        inputProps={{style:{color: "white"} }} 
+                        margin="dense" 
+                        size="medium" 
+                    />
+                    <br />
+                    <InputField 
+                        fullWidth={true} 
+                        label="Email" 
+                        variant="outlined" 
+                        inputProps={{style:{color: "white"} }} 
+                        margin="dense" 
+                        size="medium" 
+                    />
+                    <br />
+                    <InputField
+                        id="outlined-multiline-static"
+                        label="Message"
+                        fullWidth={true} 
+                        multiline
+                        margin="dense" 
+                        rows={5}
+                        inputProps={{style:{color: "white"} }} 
+                        variant="outlined"
+                    />
+                    
+                    <Button style = {{
+                        color: "white", 
+                        background: "lightsalmon",
+                        margin: "1rem 0 0 0",
+                        width: "100%"
+                        }}>
+                        Contact Me
+                    </Button>
+                </Box>
+            </Grid>
+        </Box>
+    
     );
 };
 

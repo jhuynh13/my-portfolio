@@ -6,21 +6,25 @@ import {
     Grid, 
     Box
 } from "@material-ui/core"
-import avatar from "../image1.gif"
+import avatar from "../images/0.jpeg"
 import Typed from "react-typed"
 
 const useStyles = makeStyles (theme=> ({
     avatar: {
-        width: theme.spacing(15),
-        height: theme.spacing(15),
+        width: theme.spacing(30),
+        height: theme.spacing(30),
         margin: theme.spacing(1)
     },
     title: {
-        color: "tomato"
+        color: "white",
+        fontFamily: "Raleway",
+        fontSize: "50px"
     },
     subtitle: {
-        color: "pink",
-        marginBottom: "3rem"
+        color: "#004080",
+        fontFamily: "Raleway",
+        marginBottom: "3rem",
+        fontSize: "35px"
     },
     typedContainer:{
         position: "absolute",
@@ -41,7 +45,7 @@ const Header = () => {
                 <Avatar className={classes.avatar} src={avatar} alt="Johnny Huynh" />
             </Grid>
             <Typography className={classes.title} variant ="h4">
-                <Typed strings={["Johnny Huynh"]} typeSpeed={40}/>
+                <Typed strings={["Johnny Huynh"]} typeSpeed={80}/>
             </Typography>
             <br />
             <Typography className={classes.subtitle} variant="h5">
@@ -51,7 +55,6 @@ const Header = () => {
                     backSpeed={60}
                     loop
                 />
-
             </Typography>
         </Box>
     );

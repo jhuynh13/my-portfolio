@@ -71,13 +71,22 @@ const Contacts = () => {
                             size="medium" 
                         />
                         <br />
+                        <InputField
+                            id="outlined-multiline-static"
+                            label="Multiline"
+                            multiline
+                            rows={5}
+                    
+                            variant="outlined"
+                        />
+                        <br />
                         <Button 
                         className={classes.button} 
                         variant="outlined" 
                         fullWidth={true} 
                         endIcon={<SendIcon />}
                         >
-                            Contact Me
+                            Submit
                         </Button>
                     </Box>
                 </Grid>

@@ -6,7 +6,8 @@ import Home from './components/';
 import Portfolio from './components/Portfolio';
 import Contacts from './components/Contacts';
 
-function App() {
+function App(){
+  
   return (
     <>
       <CssBaseline />
@@ -16,5 +17,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

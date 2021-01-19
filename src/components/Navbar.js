@@ -17,12 +17,12 @@ import {
     Box
 } from "@material-ui/core";
 import {
-    ArrowBack,
+    Menu,
     Home,
     Apps,
     ContactMail
 } from "@material-ui/icons";
-import avatar from "../image1.gif";
+import avatar from "../images/0.jpeg";
 
 const useStyles = makeStyles(theme => ({
     menuSliderContainer: {
@@ -36,7 +36,10 @@ const useStyles = makeStyles(theme => ({
         margin: "0.5rem auto",
         width: theme.spacing(13),
         height: theme.spacing(13)
-    }
+    },
+    icon: {
+        margin: " 0 1rem 0 0"
+    },
         
 }));
 
@@ -44,7 +47,7 @@ const menuItems = [
     {
         listIcon: <Home/>,
         listText: "Home",
-        listPath: "/"
+        listPath: "/my-portfolio"
     },
     {
         listIcon: <Apps/>,
@@ -95,24 +98,24 @@ const Navbar = () => {
     );
 
     return (
-        <>
-            <Box component="nav">
-                <AppBar position="static" style={{ background: "#222" }}>
-                    <Toolbar>
-                        <iconButton onClick={toggleSlider("right", true)}>
-                            <ArrowBack></ArrowBack>
-                        </iconButton>
-                        <Typography variant="h5" style= {{color: "white"}}>
-                            Portfolio
-                        </Typography>
-                        <MobilRightMenuSlider anchor="right" open={state.right} onClose={toggleSlider("right",false)}>
-                            {sideList("right")}
-                            <Footer />
-                        </MobilRightMenuSlider>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-        </>
+        
+        <Box component="nav">
+            <AppBar position="fixed" style={{ background: "#222" }}>
+                <Toolbar>
+                    <iconButton onClick={toggleSlider("right", true)}>
+                        <Menu className={classes.icon}></Menu>
+                    </iconButton>
+                    <Typography variant="h5" style= {{color: "white"}}>
+                        Portfolio
+                    </Typography>
+                    <MobilRightMenuSlider anchor="right" open={state.right} onClose={toggleSlider("right",false)}>
+                        {sideList("right")}
+                        <Footer />
+                    </MobilRightMenuSlider>
+                </Toolbar>
+            </AppBar>
+        </Box>
+        
     )
 }
 
