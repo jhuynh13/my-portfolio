@@ -1,7 +1,10 @@
 import React from 'react';
 import {makeStyles, withStyles} from "@material-ui/core/styles";
 import {TextField, Typography, Button, Grid, Box} from "@material-ui/core";
+import { useAlert } from 'react-alert'
 import Navbar from "./Navbar";
+import emailjs from "emailjs-com"
+
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -43,12 +46,30 @@ const Contacts = () => {
 
     const classes = useStyles();
 
+    const sendFeedback = (e) =>{
+
+        e.preventDefault();
+
+        emailjs.sendForm('service_goofbvs', 'template_3qqw5zo', e.target, 'user_mHFr5q4Vb7p1XKtiwvifM')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+        
+        e.target.reset();
+
+        alert.show('Successfully Sent');
+    };
+
+    const alert = useAlert()
+
     return (
         
         <Box component="div" style={{ background: "#233", height: "100vh"}}>
             <Navbar />
             <Grid container justify="center">
-                <Box component="form" className={classes.form}>
+                <Box component="form" className={classes.form} onSubmit={sendFeedback}>
                     <Typography variant="h5" style={{color: "tomato",textAlign:"center",textTransform:"uppercase",}}>
                         Contact Me 
                     </Typography>
@@ -59,6 +80,7 @@ const Contacts = () => {
                         inputProps={{style:{color: "white"} }} 
                         margin="dense" 
                         size="medium" 
+                        name="name"
                     />
                     <br />
                     <InputField 
@@ -68,6 +90,7 @@ const Contacts = () => {
                         inputProps={{style:{color: "white"} }} 
                         margin="dense" 
                         size="medium" 
+                        name="email"
                     />
                     <br />
                     <InputField
@@ -79,15 +102,16 @@ const Contacts = () => {
                         rows={5}
                         inputProps={{style:{color: "white"} }} 
                         variant="outlined"
+                        name="message"
                     />
                     
-                    <Button style = {{
+                    <Button type="submit" style = {{
                         color: "white", 
                         background: "lightsalmon",
                         margin: "1rem 0 0 0",
                         width: "100%"
                         }}>
-                        Contact Me
+                        Send Message
                     </Button>
                 </Box>
             </Grid>
