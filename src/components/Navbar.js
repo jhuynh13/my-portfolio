@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import MobilRightMenuSlider from "@material-ui/core/Drawer";
+import MobilLeftMenuSlider from "@material-ui/core/Drawer";
 import Footer from "./Footer";
 import {
     AppBar,
@@ -22,7 +22,7 @@ import {
     Apps,
     ContactMail
 } from "@material-ui/icons";
-import avatar from "../images/0.jpeg";
+import avatar from "../images/dev.png";
 
 const useStyles = makeStyles(theme => ({
     menuSliderContainer: {
@@ -102,16 +102,16 @@ const Navbar = () => {
         <Box component="nav">
             <AppBar position="fixed" style={{ background: "#222" }}>
                 <Toolbar>
-                    <iconButton onClick={toggleSlider("right", true)}>
+                    <iconButton onClick={toggleSlider("left", true)}>
                         <Menu className={classes.icon}></Menu>
                     </iconButton>
                     <Typography variant="h5" style= {{color: "white"}}>
                         Portfolio
                     </Typography>
-                    <MobilRightMenuSlider anchor="right" open={state.right} onClose={toggleSlider("right",false)}>
-                        {sideList("right")}
+                    <MobilLeftMenuSlider anchor="left" open={state.left} onClose={toggleSlider("left",false)}>
+                        {sideList("left")}
                         <Footer />
-                    </MobilRightMenuSlider>
+                    </MobilLeftMenuSlider>
                 </Toolbar>
             </AppBar>
         </Box>
